@@ -16,7 +16,7 @@ const initialAppState = {
   showingResult: false, //結果を表示するのか判断
 };
 
-export const calculator = (state = initialAppState, action) => {
+const calculator = (state = initialAppState, action) => {
   switch (action.type) {
     case INPUT_NUMBER:
       return {
@@ -127,7 +127,7 @@ export const calculator = (state = initialAppState, action) => {
             resultValue: state.resultValue - state.inputValue,
             showingResult: true,
           };
-        case '+':
+        case '*':
           return {
             inputValue: state.resultValue * state.inputValue,
             operator: '',
@@ -135,7 +135,7 @@ export const calculator = (state = initialAppState, action) => {
             resultValue: state.resultValue * state.inputValue,
             showingResult: true,
           };
-        case '+':
+        case '/':
           return {
             inputValue: state.resultValue / state.inputValue,
             operator: '',
@@ -150,3 +150,5 @@ export const calculator = (state = initialAppState, action) => {
       return state;
   }
 };
+
+export default calculator;
